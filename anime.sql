@@ -69,3 +69,60 @@ CREATE TABLE site_de_dominio (
 	URL VARCHAR(100),
     PRIMARY KEY (URL)
 );
+
+CREATE TABLE fornece_para(
+	nome_estudio VARCHAR(100),
+    url_site VARCHAR(100),
+    FOREIGN KEY(nome_estudio) REFERENCES site_de_dominio(url),
+    FOREIGN KEY(nome_estudio) REFERENCES estudio_de_animacao(nome),
+    PRIMARY KEY (nome_estudio, url_site)
+);
+
+CREATE TABLE trabalham_em (
+	nome_estudio VARCHAR(100),
+    cpf_funcionarios CHAR(11),
+    FOREIGN KEY(nome_estudio) REFERENCES estudio_de_animacao(nome),
+    FOREIGN KEY(cpf_funcionarios) REFERENCES funcionarios(cpf),
+    PRIMARY KEY (nome_estudio, cpf_funcionarios)
+);
+
+CREATE TABLE produz (
+	nome_estudio VARCHAR(100),
+    nome_animes VARCHAR(100),
+	FOREIGN KEY(nome_estudio) REFERENCES estudio_de_animacao(nome),
+    FOREIGN KEY(nome_animes) REFERENCES animes(nome),
+    PRIMARY KEY (nome_estudio, nome_animes)
+);
+
+CREATE TABLE possui (
+	nome_animes VARCHAR(100),
+	sinopse_episodio VARCHAR(100),
+    FOREIGN KEY(nome_estudio) REFERENCES estudio_de_animacao(nome),
+    FOREIGN KEY(sinopse_episodio) REFERENCES episodio(sinopse),
+    PRIMARY KEY(nome_animes)
+);
+
+CREATE TABLE coordenam (
+	comanda_a_producao_produtores VARCHAR(100),
+    nome_animes VARCHAR(100),
+	FOREIGN KEY(comanda_a_producao) REFERENCES produtores(comanda_a_producao),
+    FOREIGN KEY(nome_animes) REFERENCES animes(nome),
+    PRIMARY KEY (comanda_a_producao_produtores, nome_animes)
+);
+
+
+CREATE TABLE elaborados (
+	historia_autores VARCHAR(100),
+    nome_animes VARCHAR(100),
+	FOREIGN KEY(historia_autores) REFERENCES autores(historia),
+    FOREIGN KEY(nome_animes) REFERENCES animes(nome),
+    PRIMARY KEY (historia_autores, nome_animes)
+);
+
+CREATE TABLE pertence_a (
+	grupos_demograficos_genero VARCHAR(100),
+    nome_animes VARCHAR(100),
+	FOREIGN KEY(grupos_demograficos_genero) REFERENCES genero(grupos_demograficos),
+    FOREIGN KEY(nome_animes) REFERENCES animes(nome),
+    PRIMARY KEY (grupos_demograficos_genero, nome_animes)
+);
