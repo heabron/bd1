@@ -1,8 +1,8 @@
 -- Link repositorio: https://github.com/heabron/bd1
 
 CREATE TABLE animes (
-	nome VARCHAR(100),
-    enredo INTEGER,
+	titulo VARCHAR(100),
+    enredo VARCHAR(100),
     temporadas INTEGER,
     PRIMARY KEY(titulo)
 );
@@ -10,7 +10,7 @@ CREATE TABLE animes (
 CREATE TABLE estudio_de_animacao (
 	qualidade INTEGER,
     nome VARCHAR(100),
-    capital INTEGER,
+   real INTEGER,
     PRIMARY KEY(nome)
 );
 
@@ -20,21 +20,23 @@ CREATE TABLE funcionarios (
 );
 
 CREATE TABLE produtores (
-    nome VARCHAR(100),
+   comanda_a_producao VARCHAR(100),
     escalar_o_elenco INTEGER,
-    administrar_os_gastors INTEGER,
+    administrar_os_gastos INTEGER,
     PRIMARY KEY(comanda_a_producao)
 );
 
 CREATE TABLE autores (
-    qualidade INTEGER,
-    diferencial VARCHAR(100)
+    historia VARCHAR(300),
+	qualidade INTEGER,
+    diferencial VARCHAR(100),
     PRIMARY KEY (historia)
 );
 
 CREATE TABLE generos (
     crossovers VARCHAR(100),
     subgeneros VARCHAR(100),
+	grupos_demograficos VARCHAR(100),
     PRIMARY KEY (grupos_demograficos)
 );
 
@@ -64,5 +66,6 @@ CREATE TABLE animadores (
 CREATE TABLE site_de_dominio (
 	variedade VARCHAR(100),
     assinantes VARCHAR(100),
+	URL VARCHAR(100),
     PRIMARY KEY (URL)
 );
