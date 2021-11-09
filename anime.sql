@@ -1,4 +1,4 @@
--- Link repositorio: https://github.com/
+-- Link repositorio: https://github.com/heabron/bd1
 
 CREATE TABLE animes (
 	nome VARCHAR(100),
